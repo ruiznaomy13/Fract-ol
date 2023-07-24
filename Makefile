@@ -9,14 +9,14 @@
 #                                                                          #
 # ************************************************************************ #
 
-NAME		= fract-ol
+NAME		= Fract-ol
 HEADER		= fract-ol.h
 
 INCLUDE		= -I./ -I inc/libft -Iminilibx
 SRCS_DIR 	= src
 OBJ_DIR		= obj
 
-SRCS		= $(SRCS_DIR)/main.c
+SRCS		= $(SRCS_DIR)/main.c $(SRCS_DIR)/needs.c
 OBJS		= $(patsubst $(SRCS_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS))
 DEPS		= $(addsuffix .d,$(basename ${OBJS}))
 RUTAS		= inc/libft/libft.a minilibx/libmlx.a
@@ -41,7 +41,7 @@ all:
 
 ${NAME}: ${OBJS}
 	${CC} ${CFLAGS} ${OBJS} ${RUTAS} -framework OpenGL -framework AppKit -o ${NAME}
-	@echo "$(GREEN)push_swap compiled$(NC)"
+	@echo "$(GREEN)Fract-ol compiled$(NC)"
 
 -include ${DEPS}
 
