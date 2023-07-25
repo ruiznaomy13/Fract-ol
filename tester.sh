@@ -1,3 +1,3 @@
 #!/bin/bash
-make re
+make
 ./fract-ol
