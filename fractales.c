@@ -22,8 +22,8 @@ void    mandelbrot(t_fractal *mndl, t_win window, t_img *img)
         mndl->col = -1;
         while (++mndl->col < window.w)
         {
-            mndl->c_re = (mndl->col - window.w / 2.0) * 4.0 / window.w;
-            mndl->c_im = (mndl->row - window.h / 2.0) * 4.0 / window.h;
+            mndl->c_re = (mndl->col - window.w / 1.5) * 3.0 / window.w;
+            mndl->c_im = (mndl->row - window.h / 2.0) * 3.0 / window.h;
             mndl->i = 0;
             mndl->x = 0;
             mndl->y = 0;
@@ -36,12 +36,11 @@ void    mandelbrot(t_fractal *mndl, t_win window, t_img *img)
                 mndl->i++;
             }
 
-            // if (mndl->i < 1000)
-            //     my_mlx_pixel_put(img, mndl->col, mndl->row, 0x0071C55B);
-            // else
-            //     my_mlx_pixel_put(img, mndl->col, mndl->row, 0x00000000);
+            if (mndl->i < 1000)
+                put_color_px(mndl->i, mndl, img);
+            else
+                my_mlx_pixel_put(img, mndl->col, mndl->row, 0x00000000);
 
-            put_color_px(mndl->i, mndl, img);
         }
     }
 }

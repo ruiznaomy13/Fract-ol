@@ -4,6 +4,10 @@
 #include <mlx.h>
 #include <stdio.h>
 
+# define ESC 53
+# define H 1000
+# define W 1000
+
 typedef struct s_win
 {
 	void	*mlx_ptr;
@@ -32,11 +36,27 @@ typedef struct s_fractal
 	double	y;
 }			t_fractal;
 
+typedef struct s_move
+{
+	double	x;
+	double	y;
+	double	z;
+}			t_move;
+
+typedef struct s_all
+{
+	t_win		win;
+	t_img		*img;
+	t_fractal	*fractal;
+	t_move		*mv;
+}				t_all;
+
 
 void    my_mlx_pixel_put(t_img *data, int x, int y, int color);
 t_win	new_program(int w, int h, char *str);
 t_img	new_img(t_win window);
 
+void    start_all(t_all *all);
 void    start_fractal(t_fractal *fractal);
 
 /* FRACTALES */

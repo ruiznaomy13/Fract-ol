@@ -12,7 +12,7 @@
 NAME		= Fract-ol
 HEADER		= fract-ol.h
 
-INCLUDE		= -I./ -I inc/libft -Iminilibx
+INCLUDE		= -I./ -Iminilibx
 SRCS_DIR 	= src
 OBJ_DIR		= obj
 
@@ -20,7 +20,7 @@ SRCS		= $(SRCS_DIR)/main.c $(SRCS_DIR)/needs.c $(SRCS_DIR)/starts.c \
 			$(SRCS_DIR)/fractales.c $(SRCS_DIR)/colors.c
 OBJS		= $(patsubst $(SRCS_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS))
 DEPS		= $(addsuffix .d,$(basename ${OBJS}))
-RUTAS		= inc/libft/libft.a minilibx/libmlx.a
+RUTAS		= minilibx/libmlx.a
 
 CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
@@ -36,7 +36,6 @@ ${OBJ_DIR}/%.o: %.c Makefile
 	@${CC} -MT $@ ${CFLAGS} -MMD -MP ${INCLUDE} -c $< -o $@
 
 all:
-	@${MAKE} -C inc/libft
 	@${MAKE} -C minilibx
 	@${MAKE} ${NAME}
 
@@ -47,13 +46,11 @@ ${NAME}: ${OBJS}
 -include ${DEPS}
 
 clean:
-	@${MAKE} clean -C inc/libft
 	@${MAKE} clean -C minilibx
 	rm -rf ${OBJ_DIR}
 	@echo "$(RED)\nDestruction successful\n$(NC)"
 
 fclean: clean
-	@${MAKE} fclean -C inc/libft
 	rm -rf ${NAME}
 
 re: fclean all
