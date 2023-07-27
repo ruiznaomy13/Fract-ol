@@ -16,9 +16,9 @@ void    mandelbrot(t_fractal *mndl, t_win window, t_img *img)
 {
     double      tmp;
 
-    tmp = 0;
     while (++mndl->row < window.h)
     {
+        tmp = 0;
         mndl->col = -1;
         while (++mndl->col < window.w)
         {
@@ -35,12 +35,12 @@ void    mandelbrot(t_fractal *mndl, t_win window, t_img *img)
                 mndl->x = tmp;
                 mndl->i++;
             }
+                printf("Llego aqui\n");
 
             if (mndl->i < 1000)
                 put_color_px(mndl->i, mndl, img);
             else
                 my_mlx_pixel_put(img, mndl->col, mndl->row, 0x00000000);
-
         }
     }
 }
