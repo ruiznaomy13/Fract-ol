@@ -70,7 +70,7 @@ int 	exit_win(t_win *win);
 void    zoom(t_all *all, int n);
 
 /* FRACTALES */
-void    mandelbrot(t_fractal *mndl, t_win window, t_img *img);
+void    mandelbrot(t_all *all);
 
 /* COLORS */
 void    put_color_px(int i, t_fractal *fractal, t_img *img);

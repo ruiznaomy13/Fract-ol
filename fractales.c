@@ -12,34 +12,36 @@
 
 #include "fractol.h"
 
-void    mandelbrot(t_fractal *mndl, t_win window, t_img *img)
+void    mandelbrot(t_all *all)
 {
     double      tmp;
+    t_fractal   *f;
 
-    while (++mndl->row < window.h)
+    f = all->fractal;
+    while (++f->row < all->win.h)
     {
         tmp = 0;
-        mndl->col = -1;
-        while (++mndl->col < window.w)
+        f->col = -1;
+        while (++f->col < all->win.w)
         {
-            mndl->c_re = (mndl->col - window.w / 1.5) * 3.0 / window.w;
-            mndl->c_im = (mndl->row - window.h / 2.0) * 3.0 / window.h;
-            mndl->i = 0;
-            mndl->x = 0;
-            mndl->y = 0;
-            while (mndl->i < 1000 && ((mndl->x * mndl->x)
-                + (mndl->y * mndl->y) <= 4))
+            f->c_re = (f->col - all->win.w / 1.5) * (3.0 / all->mv->z) / all->win.w;
+            f->c_im = (f->row - all->win.h / 2.0) * (3.0 / all->mv->z) / all->win.h;
+            f->i = 0;
+            f->x = 0;
+            f->y = 0;
+            while (f->i < 1000 && ((f->x * f->x)
+                + (f->y * f->y) <= 4))
             {
-                tmp = (mndl->x * mndl->x) - (mndl->y * mndl->y) + mndl->c_re;
-                mndl->y = 2 * mndl->x * mndl->y + mndl->c_im;
-                mndl->x = tmp;
-                mndl->i++;
+                tmp = (f->x * f->x) - (f->y * f->y) + f->c_re;
+                f->y = 2 * f->x * f->y + f->c_im;
+                f->x = tmp;
+                f->i++;
             }
 
-            if (mndl->i < 1000)
-                put_color_px(mndl->i, mndl, img);
+            if (f->i < 1000)
+                put_color_px(f->i, f, all->img);
             else
-                my_mlx_pixel_put(img, mndl->col, mndl->row, 0x00000000);
+                my_mlx_pixel_put(all->img, f->col, f->row, 0x00000000);
         }
     }
 }

@@ -6,7 +6,7 @@
 /*   By: ncastell <ncastell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 21:00:45 by ncastell          #+#    #+#             */
-/*   Updated: 2023/07/28 17:15:28 by ncastell         ###   ########.fr       */
+/*   Updated: 2023/07/28 17:16:00 by ncastell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void    zoom(t_all *all, int n)
         mv->z -= 0.5;
     else if (n == 2)
         mv->z += 0.5;
-    mandelbrot(all->fractal, all->win, all->img);
+    mandelbrot(all);
 }
 
 int exit_win(t_win *win)
