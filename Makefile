@@ -17,7 +17,7 @@ SRCS_DIR 	= src
 OBJ_DIR		= obj
 
 SRCS		= $(SRCS_DIR)/main.c $(SRCS_DIR)/needs.c $(SRCS_DIR)/starts.c \
-			$(SRCS_DIR)/fractales.c $(SRCS_DIR)/colors.c
+			$(SRCS_DIR)/fractales.c $(SRCS_DIR)/colors.c $(SRCS_DIR)/masks.c
 OBJS		= $(patsubst $(SRCS_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS))
 DEPS		= $(addsuffix .d,$(basename ${OBJS}))
 RUTAS		= minilibx/libmlx.a

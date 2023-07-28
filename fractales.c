@@ -35,7 +35,6 @@ void    mandelbrot(t_fractal *mndl, t_win window, t_img *img)
                 mndl->x = tmp;
                 mndl->i++;
             }
-                printf("Llego aqui\n");
 
             if (mndl->i < 1000)
                 put_color_px(mndl->i, mndl, img);
