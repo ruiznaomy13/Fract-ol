@@ -6,7 +6,7 @@
 /*   By: ncastell <ncastell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 21:00:45 by ncastell          #+#    #+#             */
-/*   Updated: 2023/07/28 17:16:00 by ncastell         ###   ########.fr       */
+/*   Updated: 2023/08/01 18:49:11 by ncastell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,22 @@
 
 int read_key(int press_key, t_all *all)
 {
+    if (press_key == K_UP)
+        all->mv->y += 0.2;
+    else if (press_key == K_DOWN)
+        all->mv->y -= 0.2;
+    else if (press_key == K_LEFT)
+        all->mv->x += 0.5;
+    else if (press_key == K_RIGHT)
+        all->mv->x -= 0.5;
+    else if (press_key == ZOOM_IN)
+        all->mv->z += 0.1;
+    else if (press_key == ZOOM_OUT)
+        all->mv->z -= 0.1;
+    mandelbrot(all);
     if (press_key == ESC || !all->img)
-        exit_win(&all->img->win);
+        mlx_clear_window(all->win.mlx_ptr, all->win.win_ptr);
+        // exit_win(&all->img->win);
     return (0);
 }
 
@@ -34,9 +48,9 @@ void    zoom(t_all *all, int n)
 
     mv = all->mv;
     if (n == 1)
-        mv->z -= 0.5;
+        mv->z -= 0.1;
     else if (n == 2)
-        mv->z += 0.5;
+        mv->z += 0.1;
     mandelbrot(all);
 }
 

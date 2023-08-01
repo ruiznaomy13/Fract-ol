@@ -6,7 +6,7 @@
 /*   By: ncastell <ncastell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 21:28:29 by ncastell          #+#    #+#             */
-/*   Updated: 2023/07/28 17:18:40 by ncastell         ###   ########.fr       */
+/*   Updated: 2023/08/01 17:35:12 by ncastell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int main()
     img = new_img(win);
     start_all(&img, win, &fractal, &mv, &all);
     mandelbrot(&all);
-    mlx_put_image_to_window(all.win.mlx_ptr, all.win.win_ptr, all.img->img, 0, 0);
+    // mlx_put_image_to_window(all.win.mlx_ptr, all.win.win_ptr, all.img->img, 0, 0);
     mlx_key_hook (all.win.win_ptr, read_key, &all);
-    mlx_key_hook (all.win.win_ptr, read_mouse, &all);
+    // mlx_mouse_hook (all.win.win_ptr, read_mouse, &all);
     mlx_hook(all.win.win_ptr, 17, 0, exit_win, &all.win);
     mlx_loop(all.win.mlx_ptr);
 }

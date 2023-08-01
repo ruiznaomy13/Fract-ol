@@ -10,6 +10,12 @@
 # define W 1000
 # define S_DOWN 4
 # define S_UP 5
+# define K_LEFT 123
+# define K_RIGHT 124
+# define K_UP 126
+# define K_DOWN 125
+# define ZOOM_IN 78
+# define ZOOM_OUT 69
 
 typedef struct s_win
 {
