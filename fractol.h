@@ -16,7 +16,6 @@
 # define K_DOWN 125
 # define ZOOM_IN 78
 # define ZOOM_OUT 69
-# define R 15
 
 typedef struct s_win
 {
@@ -77,8 +76,8 @@ int 	exit_win(t_win *win);
 void    zoom(t_all *all, int n);
 
 /* FRACTALES */
-void    fractal_c(t_all *all);
 void    ft_mndl(t_fractal *mndl, double tmp);
+void    mandelbrot(t_all *all);
 
 /* COLORS */
 void    put_color_px(int i, t_fractal *fractal, t_img *img);

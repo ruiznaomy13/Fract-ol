@@ -6,7 +6,7 @@
 /*   By: ncastell <ncastell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 21:00:45 by ncastell          #+#    #+#             */
-/*   Updated: 2023/08/02 14:59:10 by ncastell         ###   ########.fr       */
+/*   Updated: 2023/08/02 15:01:14 by ncastell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int read_key(int press_key, t_all *all)
         all->mv->z += 0.1;
     else if (press_key == ZOOM_OUT)
         all->mv->z -= 0.1;
-    fractal_c(all);
+    mandelbrot(all);
     if (press_key == ESC || !all->img)
         exit_win(&all->img->win);
         // mlx_clear_window(all->win.mlx_ptr, all->win.win_ptr);
@@ -52,7 +52,7 @@ void    zoom(t_all *all, int n)
         mv->z -= 0.1;
     else if (n == 2)
         mv->z += 0.1;
-    fractal_c(all);
+    mandelbrot(all);
 }
 
 int exit_win(t_win *win)
