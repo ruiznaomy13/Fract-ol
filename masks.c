@@ -6,7 +6,7 @@
 /*   By: ncastell <ncastell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 21:00:45 by ncastell          #+#    #+#             */
-/*   Updated: 2023/08/01 18:49:11 by ncastell         ###   ########.fr       */
+/*   Updated: 2023/08/02 14:59:10 by ncastell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,22 @@
 int read_key(int press_key, t_all *all)
 {
     if (press_key == K_UP)
-        all->mv->y += 0.2;
+        all->mv->y += 20.0;
     else if (press_key == K_DOWN)
-        all->mv->y -= 0.2;
+        all->mv->y -= 20.0;
     else if (press_key == K_LEFT)
-        all->mv->x += 0.5;
+        all->mv->x += 20.0;
     else if (press_key == K_RIGHT)
-        all->mv->x -= 0.5;
+        all->mv->x -= 20.0;
     else if (press_key == ZOOM_IN)
         all->mv->z += 0.1;
     else if (press_key == ZOOM_OUT)
         all->mv->z -= 0.1;
-    mandelbrot(all);
+    fractal_c(all);
     if (press_key == ESC || !all->img)
-        mlx_clear_window(all->win.mlx_ptr, all->win.win_ptr);
-        // exit_win(&all->img->win);
+        exit_win(&all->img->win);
+        // mlx_clear_window(all->win.mlx_ptr, all->win.win_ptr);
+    // printf("%f, %f\n", all->mv->x, all->mv->y);
     return (0);
 }
 
@@ -51,7 +52,7 @@ void    zoom(t_all *all, int n)
         mv->z -= 0.1;
     else if (n == 2)
         mv->z += 0.1;
-    mandelbrot(all);
+    fractal_c(all);
 }
 
 int exit_win(t_win *win)
