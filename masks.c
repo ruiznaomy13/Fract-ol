@@ -29,30 +29,16 @@ int read_key(int press_key, t_all *all)
     mandelbrot(all);
     if (press_key == ESC || !all->img)
         exit_win(&all->img->win);
-        // mlx_clear_window(all->win.mlx_ptr, all->win.win_ptr);
-    // printf("%f, %f\n", all->mv->x, all->mv->y);
     return (0);
 }
 
 int read_mouse(int mouse_mv, t_all *all)
 {
     if (mouse_mv == S_UP)
-        zoom(all, 1);
+        all->mv->z += 0.1;
     else if (mouse_mv == S_DOWN)
-        zoom(all, 2);
+        zall->mv->z -= 0.1;
     return (0);
-}
-
-void    zoom(t_all *all, int n)
-{
-    t_move *mv;
-
-    mv = all->mv;
-    if (n == 1)
-        mv->z -= 0.1;
-    else if (n == 2)
-        mv->z += 0.1;
-    mandelbrot(all);
 }
 
 int exit_win(t_win *win)

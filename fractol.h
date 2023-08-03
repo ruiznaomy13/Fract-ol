@@ -78,6 +78,7 @@ void    zoom(t_all *all, int n);
 /* FRACTALES */
 void    ft_mndl(t_fractal *mndl, double tmp);
 void    mandelbrot(t_all *all);
+void    julia(t_all *all);
 
 /* COLORS */
 void    put_color_px(int i, t_fractal *fractal, t_img *img);
