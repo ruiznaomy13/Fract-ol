@@ -6,11 +6,11 @@
 /*   By: ncastell <ncastell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 16:22:14 by ncastell          #+#    #+#             */
-/*   Updated: 2023/08/02 15:35:22 by ncastell         ###   ########.fr       */
+/*   Updated: 2023/08/06 20:16:00 by ncastell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "inc/fractol.h"
 
 void    start_fractal(t_fractal *fractal)
 {
@@ -25,7 +25,7 @@ void    start_fractal(t_fractal *fractal)
 
 void    start_mv(t_move *move)
 {
-    move->x = -0.7;
+    move->x = -0.5;
     move->y = 0.27;
     move->z = 1.0;
 }

@@ -6,11 +6,11 @@
 /*   By: ncastell <ncastell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 21:30:47 by ncastell          #+#    #+#             */
-/*   Updated: 2023/07/27 17:18:09 by ncastell         ###   ########.fr       */
+/*   Updated: 2023/08/06 20:15:57 by ncastell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "inc/fractol.h"
 
 void my_mlx_pixel_put(t_img *img, int x, int y, int color)
 {

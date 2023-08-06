@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "inc/fractol.h"
 
 //Conjunto de mandelbrot
 void mandelbrot(t_all *all)

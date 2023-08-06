@@ -6,11 +6,11 @@
 /*   By: ncastell <ncastell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 16:48:02 by ncastell          #+#    #+#             */
-/*   Updated: 2023/07/27 16:27:54 by ncastell         ###   ########.fr       */
+/*   Updated: 2023/08/06 20:15:43 by ncastell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "inc/fractol.h"
 
 void    put_color_px(int i, t_fractal *fractal, t_img *img)
 {

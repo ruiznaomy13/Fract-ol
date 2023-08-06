@@ -1,7 +1,8 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-#include <mlx.h>
+# include "mlx.h"
+# include "libft.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -36,6 +37,7 @@ typedef struct	s_img {
 
 typedef struct s_fractal
 {
+	char	*set;
 	int		row;
 	int		col;
 	double	c_re;
@@ -76,10 +78,15 @@ int 	exit_win(t_win *win);
 void    zoom(t_all *all, int n);
 
 /* FRACTALES */
-void    ft_mndl(t_fractal *mndl, double tmp);
-void    mandelbrot(t_all *all);
-void    julia(t_all *all);
+void	ft_mndl(t_fractal *mndl, double tmp);
+void	fractol_set(t_all *fractal, char *set);
+void	mandelbrot(t_all *all);
+void	julia(t_all *all);
 
 /* COLORS */
 void    put_color_px(int i, t_fractal *fractal, t_img *img);
+
+/* CHECKER */
+int		checker(int ac, char *av);
+void	ft_fractal(t_all *all);
 #endif

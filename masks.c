@@ -6,11 +6,11 @@
 /*   By: ncastell <ncastell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 21:00:45 by ncastell          #+#    #+#             */
-/*   Updated: 2023/08/02 15:01:14 by ncastell         ###   ########.fr       */
+/*   Updated: 2023/08/06 20:15:52 by ncastell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "inc/fractol.h"
 
 int read_key(int press_key, t_all *all)
 {
@@ -37,7 +37,7 @@ int read_mouse(int mouse_mv, t_all *all)
     if (mouse_mv == S_UP)
         all->mv->z += 0.1;
     else if (mouse_mv == S_DOWN)
-        zall->mv->z -= 0.1;
+        all->mv->z -= 0.1;
     return (0);
 }
 

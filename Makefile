@@ -9,22 +9,20 @@
 #                                                                          #
 # ************************************************************************ #
 
-NAME		= Fract-ol
-HEADER		= fract-ol.h
+NAME		= fractol
+HEADER		= inc/fractol.h
 
-INCLUDE		= -I./ -Iminilibx
-SRCS_DIR 	= src
-OBJ_DIR		= obj
+INCLUDE		= -I./ -I lib/libft -I lib/minilibx
 
-SRCS		= $(SRCS_DIR)/main.c $(SRCS_DIR)/needs.c $(SRCS_DIR)/starts.c \
-			$(SRCS_DIR)/fractales.c $(SRCS_DIR)/colors.c $(SRCS_DIR)/masks.c
-OBJS		= $(patsubst $(SRCS_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS))
-DEPS		= $(addsuffix .d,$(basename ${OBJS}))
-RUTAS		= minilibx/libmlx.a
+OBJ_DIR		= obj/
 
 CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror
-RM			= rm -rf
+CFLAGS		= -Wall -Werror -Wextra -O3
+
+SRCS		= main.c colors.c fractales.c masks.c needs.c starts.c
+OBJS		= $(addprefix ${OBJ_DIR}/,$(SRCS:.c=.o))
+DEPS		= $(addsuffix .d,$(basename ${OBJS}))
+RUTAS		= lib/libft/libft.a lib/minilibx/libmlx.a
 
 ######## COLORS #########
 GREEN		= \033[1;92m
@@ -36,21 +34,24 @@ ${OBJ_DIR}/%.o: %.c Makefile
 	@${CC} -MT $@ ${CFLAGS} -MMD -MP ${INCLUDE} -c $< -o $@
 
 all:
-	@${MAKE} -C minilibx
+	@${MAKE} -sC lib/libft
+	@${MAKE} -sC lib/minilibx
 	@${MAKE} ${NAME}
 
-${NAME}: ${OBJS}
-	${CC} ${CFLAGS} ${OBJS} ${RUTAS} -framework OpenGL -framework AppKit -o ${NAME}
-	@echo "$(GREEN)Fract-ol compiled$(NC)"
+${NAME}: ${OBJS} 
+	${CC} ${CFLAGS} ${OBJS} ${RUTAS} -Llib/minilibx -lmlx -framework OpenGL -framework AppKit -o ${NAME}
+	@echo "$(GREEN)🪐 fract-ol compiled 🪐$(NC)"
 
 -include ${DEPS}
 
 clean:
-	@${MAKE} clean -C minilibx
+	@${MAKE} clean -sC lib/libft
+	@${MAKE} clean -sC lib/minilibx
 	rm -rf ${OBJ_DIR}
 	@echo "$(RED)\nDestruction successful\n$(NC)"
 
 fclean: clean
+	@${MAKE} fclean -sC lib/libft
 	rm -rf ${NAME}
 
 re: fclean all
