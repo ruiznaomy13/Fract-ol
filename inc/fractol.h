@@ -6,6 +6,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define ITERATIONS 100
+
 # define ESC 53
 # define H 1000
 # define W 1000
@@ -70,6 +72,7 @@ void    start_all(t_img *img, t_win win, t_fractal *fractal, t_move *mv, t_all *
 void    start_fractal(t_fractal *fractal);
 
 /*HOOKS*/
+void    hooks(t_all all);
 int 	read_key(int press_key, t_all *all);
 int 	read_mouse(int mouse_mv, t_all *all);
 
@@ -78,10 +81,10 @@ int 	exit_win(t_win *win);
 void    zoom(t_all *all, int n);
 
 /* FRACTALES */
-void	ft_mndl(t_fractal *mndl, double tmp);
+void	ft_mndl(t_fractal *f, t_move *mv, t_win win, double tmp);
 void	fractol_set(t_all *fractal, char *set);
-void	mandelbrot(t_all *all);
-void	julia(t_all *all);
+void	ft_fractal(t_all *all);
+void	ft_julia(t_fractal *f, t_move *mv, t_win win, double tmp);
 
 /* COLORS */
 void    put_color_px(int i, t_fractal *fractal, t_img *img);

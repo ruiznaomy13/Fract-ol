@@ -2,6 +2,7 @@
     "files.associations": {
         "__locale": "c",
         "bitset": "c",
-        "fractol.h": "c"
+        "fractol.h": "c",
+        "ios": "c"
     }
 }

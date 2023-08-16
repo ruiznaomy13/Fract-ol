@@ -6,7 +6,7 @@
 /*   By: ncastell <ncastell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 21:28:29 by ncastell          #+#    #+#             */
-/*   Updated: 2023/08/06 21:58:41 by ncastell         ###   ########.fr       */
+/*   Updated: 2023/08/16 20:39:00 by ncastell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,8 @@ int main(int ac, char **av)
     img = new_img(win);
     all.fractal->set = av[1];
     ft_fractal(&all);
-    mlx_key_hook (all.win.win_ptr, read_key, &all);
-    // mlx_mouse_hook (all.win.win_ptr, read_mouse, &all);
     mlx_hook(all.win.win_ptr, 17, 0, exit_win, &all.win);
+    hooks(all);
     mlx_loop(all.win.mlx_ptr);
 }
 
@@ -53,10 +52,8 @@ int checker(int ac, char *av)
     return (1);
 }
 
-void	ft_fractal(t_all *all)
+void    hooks(t_all all)
 {
-	if (ft_strncmp(all->fractal->set, "Mandelbrot", 10) == 0)
-		mandelbrot(all);
-	else if (ft_strncmp(all->fractal->set, "Julia", 5) == 0)
-		julia(all);
+    mlx_key_hook (all.win.win_ptr, read_key, &all);
+    mlx_mouse_hook (all.win.win_ptr, read_mouse, &all);
 }

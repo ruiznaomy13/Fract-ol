@@ -6,7 +6,7 @@
 /*   By: ncastell <ncastell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 21:00:45 by ncastell          #+#    #+#             */
-/*   Updated: 2023/08/06 20:15:52 by ncastell         ###   ########.fr       */
+/*   Updated: 2023/08/16 20:40:45 by ncastell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int read_key(int press_key, t_all *all)
         all->mv->z += 0.1;
     else if (press_key == ZOOM_OUT)
         all->mv->z -= 0.1;
-    mandelbrot(all);
+    ft_fractal(all);
     if (press_key == ESC || !all->img)
         exit_win(&all->img->win);
     return (0);
@@ -38,6 +38,7 @@ int read_mouse(int mouse_mv, t_all *all)
         all->mv->z += 0.1;
     else if (mouse_mv == S_DOWN)
         all->mv->z -= 0.1;
+    ft_fractal(all);
     return (0);
 }
 
