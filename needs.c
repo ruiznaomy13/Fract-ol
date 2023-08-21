@@ -6,7 +6,7 @@
 /*   By: ncastell <ncastell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/24 21:30:47 by ncastell          #+#    #+#             */
-/*   Updated: 2023/08/18 19:25:39 by ncastell         ###   ########.fr       */
+/*   Updated: 2023/08/21 18:00:40 by ncastell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void    start_all(t_all *f, char *name)
     f->frac.max_im = 0;
     f->frac.x = 0;
     f->frac.y = 0;
+    f->mv.i = 10;
     f->mv.x = 1.0;
     f->mv.y = 1.0;
     f->mv.z = 1.0;
